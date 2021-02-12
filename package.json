@@ -6,8 +6,7 @@
   "author": "jheth",
   "license": "MIT",
   "scripts": {
-    "inventory-test": "./node_modules/.bin/mocha inventory-list/test",
-    "verify-test": "./node_modules/.bin/mocha verify-input/test"
+    "test": "./node_modules/.bin/mocha test"
   },
   "devDependencies": {
     "mocha": "^8.1.3"
