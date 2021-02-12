@@ -42,7 +42,18 @@ describe('InventoryList', function () {
 
     list.add('Shirt', 3);
     list.remove('Shirt', 2);
+
+    assert.deepStrictEqual(list.getList(), { "Shirt": 1 });
   });
+
+  it('cannot remove more items than are in the list', function () {
+    var list = inventoryList();
+
+    list.add('Shirt', 3);
+    list.remove('Shirt', 4);
+
+    assert.deepStrictEqual(list.getList(), {});
+  })
 
   it('can accept an initial list', function() {
     var initialList = { "Shirt": 1 };
@@ -51,6 +62,6 @@ describe('InventoryList', function () {
     list.add('Shirt');
 
     assert.deepStrictEqual(list.getList(), { "Shirt": 2 });
-    assert.deepStrictEqual(initialList, { "Shirt": 1 });
+    assert.deepStrictEqual(initialList, { "Shirt": 1 }, 'the initial list is not updated');
   });
 });
