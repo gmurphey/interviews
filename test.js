@@ -3,18 +3,19 @@ var assert = require('assert');
 describe('InventoryList', function () {
   it('can add items', function () {
     var list = new InventoryList();
+
     list.add('Shirt');
     list.add('Trouser');
+
     assert.deepStrictEqual(list.getList(), { "Shirt": 1, "Trouser": 1 });
   });
 
   it('can add multiple items at once', function () {
     var list = new InventoryList();
 
-    list.add('Shirt');
     list.add('Shirt', 2);
 
-    assert.deepStrictEqual(list.getList(), { "Shirt": 3 });
+    assert.deepStrictEqual(list.getList(), { "Shirt": 2 });
   });
 
   it('can remove items', function () {
@@ -22,7 +23,6 @@ describe('InventoryList', function () {
 
     list.add('Shirt');
     list.add('Trouser');
-
     list.remove('Shirt');
 
     assert.deepStrictEqual(list.getList(), { "Trouser": 1 });
