@@ -2,14 +2,14 @@ var assert = require('assert');
 
 describe('InventoryList', function () {
   it('can add items', function () {
-    var list = inventoryList();
+    var list = new InventoryList();
     list.add('Shirt');
     list.add('Trouser');
     assert.deepStrictEqual(list.getList(), { "Shirt": 1, "Trouser": 1 });
   });
 
   it('can add multiple items at once', function () {
-    var list = inventoryList();
+    var list = new InventoryList();
 
     list.add('Shirt');
     list.add('Shirt', 2);
@@ -18,7 +18,7 @@ describe('InventoryList', function () {
   });
 
   it('can remove items', function () {
-    var list = inventoryList();
+    var list = new InventoryList();
 
     list.add('Shirt');
     list.add('Trouser');
@@ -29,7 +29,7 @@ describe('InventoryList', function () {
   });
 
   it('can accept items not in the list to remove', function () {
-    var list = inventoryList();
+    var list = new InventoryList();
 
     list.add('Shirt');
     list.remove('Trousers');
@@ -38,7 +38,7 @@ describe('InventoryList', function () {
   });
 
   it('can remove multiple items at once', function () {
-    var list = inventoryList();
+    var list = new InventoryList();
 
     list.add('Shirt', 3);
     list.remove('Shirt', 2);
@@ -47,7 +47,7 @@ describe('InventoryList', function () {
   });
 
   it('cannot remove more items than are in the list', function () {
-    var list = inventoryList();
+    var list = new InventoryList();
 
     list.add('Shirt', 3);
     list.remove('Shirt', 4);
@@ -57,7 +57,7 @@ describe('InventoryList', function () {
 
   it('can accept an initial list', function() {
     var initialList = { "Shirt": 1 };
-    var list = inventoryList(initialList);
+    var list = new InventoryList(initialList);
 
     list.add('Shirt');
 
