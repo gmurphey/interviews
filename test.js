@@ -55,6 +55,24 @@ describe('InventoryList', function () {
     assert.deepStrictEqual(list.getList(), {});
   })
 
+  it('can undo mutations', function() {
+    let list = new InventoryList();
+
+    list.add('Shirt', 2);
+    list.add('Trousers');
+    list.remove('Shirt');
+
+    assert.deepStrictEqual(list.getList(), { "Shirt": 1, "Trousers": 1 });
+
+    list.undo();
+
+    assert.deepStrictEqual(list.getList(), { "Shirt": 2, "Trousers": 1 });
+
+    list.undo();
+
+    assert.deepStrictEqual(list.getList(), { "Shirt": 2 });
+  });
+
   it('can accept an initial list', function() {
     var initialList = { "Shirt": 1 };
     var list = new InventoryList(initialList);
