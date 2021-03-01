@@ -6,7 +6,7 @@
   "author": "jheth",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/.bin/mocha test"
+    "test": "./node_modules/.bin/mocha test --bail"
   },
   "devDependencies": {
     "mocha": "^8.1.3"
