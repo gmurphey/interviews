@@ -13,9 +13,10 @@ describe('InventoryList', function () {
   it('can add multiple items at once', function () {
     var list = new InventoryList();
 
+    list.add('Shirt')
     list.add('Shirt', 2);
 
-    assert.deepStrictEqual(list.getList(), { "Shirt": 2 });
+    assert.deepStrictEqual(list.getList(), { "Shirt": 3 });
   });
 
   it('can remove items', function () {
@@ -66,11 +67,11 @@ describe('InventoryList', function () {
 
     list.undo();
 
-    assert.deepStrictEqual(list.getList(), { "Shirt": 2, "Trousers": 1 });
+    assert.deepStrictEqual(list.getList(), { "Shirt": 2, "Trousers": 1 }, 'it adds back the removed shirt');
 
     list.undo();
 
-    assert.deepStrictEqual(list.getList(), { "Shirt": 2 });
+    assert.deepStrictEqual(list.getList(), { "Shirt": 2 }, 'it removes the added trouser');
   });
 
   it('can accept an initial list', function() {
