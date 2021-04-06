@@ -47,7 +47,7 @@ describe('InventoryList', function () {
     assert.deepStrictEqual(list.getList(), { "Shirt": 1 });
   });
 
-  it('cannot remove more items than are in the list', function () {
+  it('can remove more items than are in the list', function () {
     var list = new InventoryList();
 
     list.add('Shirt', 3);
